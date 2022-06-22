@@ -24,12 +24,35 @@ public class MainPage extends BasePage {
         return driver.findElements(By.xpath("//ul[@id='menu']//a"));
     }
 
+    public List<WebElement> getSubMenu() { return driver.findElements(By.xpath("//ul[@id='submenu']//a"));}
+
+    public List <WebElement> getCreatorsNames() {return driver.findElements(By.xpath("//div[@id='main']//h3"));}
+
+    public void clickSubMenuItem(String menuItem){
+        for (int i = 0; i < getSubMenu().size(); i++) {
+            if(getSubMenu().get(i).getText().equalsIgnoreCase(menuItem)) {
+                getSubMenu().get(i).click();
+            }
+        }
+    }
+
+
 
     public SubmitNewLanguagePage navigateToSubmitNewLanguagePage() {
         for (WebElement menuItem : getMainMenu()) {
             if (menuItem.getText().equals("SUBMIT NEW LANGUAGE")) {
                 menuItem.click();
                 return new SubmitNewLanguagePage(driver);
+            }
+        }
+        return null;
+    }
+
+    public BrowseLanguagesPage navigateToBrowseLanguagesPage() {
+        for (int i = 0; i < getMainMenu().size(); i++) {
+            if (getMainMenu().get(i).getText().equalsIgnoreCase("Browse Languages")) {
+                getMainMenu().get(i).click();
+                return new BrowseLanguagesPage(driver);
             }
         }
         return null;
