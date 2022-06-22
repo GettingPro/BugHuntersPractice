@@ -6,21 +6,32 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class MainPage extends BasePage{
+public class MainPage extends BasePage {
 
     public MainPage(WebDriver driver) {
         super(driver);
     }
 
-    public void openMainPage(){
+    public void openMainPage() {
         driver.get("https://www.99-bottles-of-beer.net/");
     }
 
-    public String getMainPageHeader(){
+    public String getMainPageHeader() {
         return driver.findElement(By.xpath("//div[@id='header']/h1")).getText();
     }
 
-    public List<WebElement> getMainMenu(){
+    public List<WebElement> getMainMenu() {
         return driver.findElements(By.xpath("//ul[@id='menu']//a"));
+    }
+
+
+    public SubmitNewLanguagePage navigateToSubmitNewLanguagePage() {
+        for (WebElement menuItem : getMainMenu()) {
+            if (menuItem.getText().equals("SUBMIT NEW LANGUAGE")) {
+                menuItem.click();
+                return new SubmitNewLanguagePage(driver);
+            }
+        }
+        return null;
     }
 }
