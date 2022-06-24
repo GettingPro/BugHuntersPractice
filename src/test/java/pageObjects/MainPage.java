@@ -57,4 +57,14 @@ public class MainPage extends BasePage {
         }
         return null;
     }
+
+    public TopListsPage navigateToTopListsPage() {
+        for (int i = 0; i < getMainMenu().size(); i++) {
+            if (getMainMenu().get(i).getText().equalsIgnoreCase("Top Lists")) {
+                getMainMenu().get(i).click();
+                return new TopListsPage(driver);
+            }
+        }
+        return null;
+    }
 }
