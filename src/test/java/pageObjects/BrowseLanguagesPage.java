@@ -16,4 +16,8 @@ public class BrowseLanguagesPage extends BasePage {
     public List<WebElement> getSubMenu() {
         return driver.findElements(By.xpath("//ul[@id='submenu']//a"));
     }
+
+    public List<WebElement> getTableHeaders() {
+        return driver.findElements(By.xpath("//table[@id='category']/tbody/tr/th"));
+    }
 }

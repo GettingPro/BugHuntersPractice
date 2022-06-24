@@ -24,6 +24,8 @@ public class SubmitNewLanguagePage extends BasePage {
         return driver.findElement(By.xpath("//div[@id='main']/p"));
     }
 
+    public List <WebElement> getImportantInfo() {return  driver.findElements(By.xpath("//div[@id='main']/ul/li"));}
+
     public boolean verifyErrorMessage() {
         String[] requirements = new String[]{"Error", "Precondition", "Incomplete", "Input", ":", "-", "."};
         boolean result = true;
