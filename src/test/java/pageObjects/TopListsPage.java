@@ -13,6 +13,18 @@ public class TopListsPage extends BasePage {
         super(driver);
     }
 
+    public enum SubMenu {
+        NEWCOMMENTS(By.linkText("New Comments"));
+
+        private final By locator;
+        SubMenu(By locator) {
+            this.locator = locator;
+        }
+        public void click(WebDriver driver) {
+            driver.findElement(locator).click();
+        }
+    }
+
     public List<WebElement> getSubMenu() {
         return driver.findElements(By.xpath("//ul[@id='submenu']/li/a"));
     }
@@ -21,12 +33,12 @@ public class TopListsPage extends BasePage {
         return  driver.findElement(By.xpath("//div[@id='main']/p"));
     }
 
-    public void clickSubMenu (String menuItem) {
-        for (int i = 0; i < getSubMenu().size(); i++) {
-            if (getSubMenu().get(i).getText().equalsIgnoreCase(menuItem)) {
-                getSubMenu().get(i).click();
-            }
-
-        }
-    }
+//    public void clickSubMenu (String menuItem) {
+//        for (int i = 0; i < getSubMenu().size(); i++) {
+//            if (getSubMenu().get(i).getText().equalsIgnoreCase(menuItem)) {
+//                getSubMenu().get(i).click();
+//            }
+//
+//        }
+//    }
 }

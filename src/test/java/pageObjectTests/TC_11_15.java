@@ -11,7 +11,7 @@ public class TC_11_15 extends BaseTest{
         MainPage mainPage = new MainPage(driver);
         mainPage.openMainPage();
         TopListsPage topListsPage = mainPage.navigateToTopListsPage();
-        topListsPage.clickSubMenu("New Comments");
+        TopListsPage.SubMenu.NEWCOMMENTS.click(driver);
         String actualResult = topListsPage.getNewComments().getText();
         Assert.assertEquals(actualResult,"");
     }

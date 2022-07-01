@@ -10,7 +10,7 @@ public class TC_11_06 extends BaseTest {
     public void testCreatorsNames() {
         MainPage mainPage = new MainPage(driver);
         mainPage.openMainPage();
-        mainPage.clickSubMenuItem("Team");
+        MainPage.SubMenu.TEAM.click(driver);
         String expectedResult = "Oliver Schade Gregor Scheithauer Stefan Scheler";
 
         String actualResult = "";
