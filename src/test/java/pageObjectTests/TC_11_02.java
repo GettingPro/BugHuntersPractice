@@ -14,7 +14,7 @@ public class TC_11_02 extends BaseTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.openMainPage();
         String actualResult = MainPage.MainMenu.SUBMITNEWLANGUAGE.getText(driver);
-        Assert.assertEquals(actualResult,"SUBMIT NEW LANGUAGE");
+        Assert.assertEquals(actualResult,"Submit new Language");
     }
 
 }

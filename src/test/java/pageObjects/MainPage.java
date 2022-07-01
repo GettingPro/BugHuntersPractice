@@ -37,7 +37,6 @@ public class MainPage extends BasePage {
 
     }
 
-
     public enum SubMenu {
         TEAM(By.linkText("Team")),
         SONGLYRICS(By.linkText("Song Lyrics")),
