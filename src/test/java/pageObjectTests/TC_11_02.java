@@ -13,8 +13,7 @@ public class TC_11_02 extends BaseTest {
     public void testLastMenuItem(){
         MainPage mainPage = new MainPage(driver);
         mainPage.openMainPage();
-        List<WebElement> mainMenu = mainPage.getMainMenu();
-        String actualResult = mainMenu.get(5).getText();
+        String actualResult = MainPage.MainMenu.SUBMITNEWLANGUAGE.getText(driver);
         Assert.assertEquals(actualResult,"SUBMIT NEW LANGUAGE");
     }
 
