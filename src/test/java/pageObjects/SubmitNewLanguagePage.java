@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
@@ -12,10 +13,12 @@ public class SubmitNewLanguagePage extends BasePage {
         super(driver);
     }
 
-    public List<WebElement> getSubMenu() {
-        return driver.findElements(By.xpath("//ul[@id='submenu']//a"));
-    }
+    @FindBy(linkText = "Submit New Language")
+    WebElement firstSubMenuItem;
 
+    public String getFirstSubMenuItem(){
+        return firstSubMenuItem.getText();
+    }
     public WebElement getSubmitLanguageButton() {
         return driver.findElement(By.xpath("//input[@type='submit']"));
     }

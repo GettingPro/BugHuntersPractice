@@ -12,7 +12,7 @@ public class TC_11_03 extends BaseTest{
         MainPage mainPage = new MainPage(driver);
         mainPage.openMainPage();
         SubmitNewLanguagePage submitNewLanguagePage = mainPage.navigateToSubmitNewLanguagePage();
-        String actualResult = submitNewLanguagePage.getSubMenu().get(0).getText();
+        String actualResult = submitNewLanguagePage.getFirstSubMenuItem();
         Assert.assertEquals(actualResult,"Submit New Language");
     }
 }
