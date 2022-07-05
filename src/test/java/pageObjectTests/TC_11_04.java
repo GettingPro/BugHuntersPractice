@@ -9,9 +9,9 @@ public class TC_11_04 extends BaseTest {
 
     @Test
     public void testFirstSubMenuItem() {
-        MainPage mainPage = new MainPage(driver);
-        mainPage.openMainPage();
-        BrowseLanguagesPage browseLanguagesPage = mainPage.navigateToBrowseLanguagesPage();
+        new MainPage(driver)
+                .openMainPage()
+                .navigateToBrowseLanguagesPage();
         String actualResult = BrowseLanguagesPage.SubMenu.NUMBERS09.getText(driver);
         Assert.assertEquals(actualResult,"0-9");
     }

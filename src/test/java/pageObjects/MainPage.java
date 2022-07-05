@@ -76,8 +76,9 @@ public class MainPage extends BasePage {
 
 
 
-    public void openMainPage() {
+    public MainPage openMainPage() {
         driver.get("https://www.99-bottles-of-beer.net/");
+        return this;
     }
 
     public SubmitNewLanguagePage navigateToSubmitNewLanguagePage() {
