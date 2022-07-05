@@ -10,11 +10,12 @@ public class TC_11_11 extends BaseTest{
     @Test
 
     public void testSubmitLanguagesError(){
-        MainPage mainPage = new MainPage(driver);
-        mainPage.openMainPage();
-        SubmitNewLanguagePage submitNewLanguagePage = mainPage.navigateToSubmitNewLanguagePage();
-        submitNewLanguagePage.getSubmitLanguageButton().click();
-        String actualResult = submitNewLanguagePage.getError().getText();
+        String actualResult = new MainPage(driver)
+                .openMainPage()
+                .navigateToSubmitNewLanguagePage()
+                .clickSubmitLanguageButton()
+                .getErrorText();
+
         Assert.assertEquals(actualResult, "Error: Precondition failed - Incomplete Input.");
     }
 }

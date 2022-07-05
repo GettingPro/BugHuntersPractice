@@ -9,11 +9,12 @@ public class TC_11_12 extends BaseTest {
     @Test
 
     public void testSubmitLanguagesError() {
-        MainPage mainPage = new MainPage(driver);
-        mainPage.openMainPage();
-        SubmitNewLanguagePage submitNewLanguagePage = mainPage.navigateToSubmitNewLanguagePage();
-        submitNewLanguagePage.getSubmitLanguageButton().click();
+        boolean actualResult = new MainPage(driver)
+                .openMainPage()
+                .navigateToSubmitNewLanguagePage()
+                .clickSubmitLanguageButton()
+                .verifyErrorMessage();
 
-        Assert.assertTrue(submitNewLanguagePage.verifyErrorMessage());
+        Assert.assertTrue(actualResult);
     }
 }

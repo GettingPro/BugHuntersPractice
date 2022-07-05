@@ -16,24 +16,33 @@ public class SubmitNewLanguagePage extends BasePage {
     @FindBy(linkText = "Submit New Language")
     WebElement firstSubMenuItem;
 
+    @FindBy(className = "button")
+    WebElement submitLanguageButton;
+
+    @FindBy(xpath = "//div[@id='main']/p")
+    WebElement errorMessage;
+
     public String getFirstSubMenuItem(){
         return firstSubMenuItem.getText();
     }
-    public WebElement getSubmitLanguageButton() {
-        return driver.findElement(By.xpath("//input[@type='submit']"));
+    public SubmitNewLanguagePage clickSubmitLanguageButton() {
+        submitLanguageButton.click();
+        return this;
     }
 
-    public WebElement getError() {
-        return driver.findElement(By.xpath("//div[@id='main']/p"));
+    public String getErrorText() {
+        return errorMessage.getText();
     }
 
-    public List <WebElement> getImportantInfo() {return  driver.findElements(By.xpath("//div[@id='main']/ul/li"));}
+    public List <WebElement> getImportantInfo() {
+        return  driver.findElements(By.xpath("//div[@id='main']/ul/li"));
+    }
 
     public boolean verifyErrorMessage() {
         String[] requirements = new String[]{"Error", "Precondition", "Incomplete", "Input", ":", "-", "."};
         boolean result = true;
         for (int i = 0; i < requirements.length && result; i++) {
-            if (!getError().getText().contains(requirements[i])) {
+            if (!getErrorText().contains(requirements[i])) {
                 result = false;
             }
         }
